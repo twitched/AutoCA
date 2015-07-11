@@ -46,7 +46,7 @@
 			.label {
 			  font-size: 12pt;
 			}
-			#error {
+			.error {
 				color:red;
 			}
 		</style>
@@ -54,8 +54,8 @@
 	<body id="certsign" onload="">
 		<h1>IT 351 Certificate Authority</h1>
 		<h2>Submit your Certificate Signing Request Below</h2>
-		<h2 id="error"></h2>
-		<p id="error_sub1"></p>
+		<h2 class="error" id="error"></h2>
+		<p class="error" id="error_sub1"></p>
 		<p>
 			<label class="label" for="hostname">Hostname:</label>
 			<input type="text" name="hostname" value="" id="hostname">
