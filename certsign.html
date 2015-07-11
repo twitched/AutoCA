@@ -31,7 +31,7 @@
 						  $(json.errors).each(function(i,val){
 						      $.each(val,function(k,v){
 								  p = document.createElement("p");
-								  p.text(v);
+								  $(p).text(v);
 								  $("#error_sub1").append(p);    
 						  	  });
 						  });
