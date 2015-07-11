@@ -28,6 +28,7 @@
 	  				  error: function(xhr, textStatus, errorThrown) {
 						  $("#error").text(errorThrown);
 						  $("#error_sub1").text(textStatus)
+						  $("#error_sub2").text(xhr)
 					  }
 					});
 				}				
@@ -56,6 +57,7 @@
 		<h2>Submit your Certificate Signing Request Below</h2>
 		<h2 class="error" id="error"></h2>
 		<p class="error" id="error_sub1"></p>
+		<p class="error" id="error_sub2"></p>
 		<p>
 			<label class="label" for="hostname">Hostname:</label>
 			<input type="text" name="hostname" value="" id="hostname">
