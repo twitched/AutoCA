@@ -22,6 +22,7 @@
 	  				  dataType: 'json',
 	  				  data: JSON.stringify(data),
 	  				  success: function(data, textStatus, xhr) {
+						  $(".error").text("");
 						  $("#message").text("Copy the certificate below into a text editor and save it as your certificate");
 						  $("#certificate").text(data.result.certificate);
 					  },
