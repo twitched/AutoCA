@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>certsign</title>
+		<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$( "#submit" ).click(function() {
+				    submitcsr();
+				});
+			
+				function submitcsr(){
+					data = {
+						  hostname: $("#hostname").val(),
+				  	  	  certificate_request: $("#csr").val(),
+						  profile: "www"
+					}
+					$.ajax({
+					  url: 'https://ssltest.it.ilstu.edu:8080/cfssl-api/api/v1/cfssl/sign',
+					  type: 'POST',
+	  				  dataType: 'json',
+	  				  data: JSON.stringify(data),
+	  				  success: function(data, textStatus, xhr) {
+						  $("#message").text("Copy the certificate below into a text editor and save it as your certificate");
+						  $("#certificate").text(data.result.certificate);
+					  },
+	  				  error: function(xhr, textStatus, errorThrown) {
+						  $("#error").text("There was an error: " + errorThrown);
+					  }
+					});
+				}				
+			});
+		</script>
+		<style type="text/css" media="screen">
+			textarea {
+			  border:1px solid #999999;
+			  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+			  font-size: 12pt;
+			}
+			input {
+			  border:1px solid #999999;
+			  font-size: 12pt;
+			}
+			.label {
+			  font-size: 12pt;
+			}
+		</style>
+	</head>
+	<body id="certsign" onload="">
+		<h1>IT 351 Certificate Authority</h1>
+		<h2>Submit your Certificate Signing Request Below</h2>
+		<h2 id="error"></h2>
+		<p>
+			<label class="label" for="hostname">Hostname:</label>
+			<input type="text" name="hostname" value="" id="hostname">
+			<br/>
+			<br/>
+			<textarea rows="30" cols="65" name="csr" value="" id="csr">
+			</textarea>
+			<br/>
+			<button id="submit">Submit</button>
+		</p>
+		<p id="message">
+		</p>
+		<pre id="certificate">
+		</pre>
+	</body>
+</html>
