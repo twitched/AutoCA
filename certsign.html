@@ -30,8 +30,10 @@
 						  $("#error_sub1").text(textStatus)
 						  $("#error_sub2").text(xhr.responseText)
 						  var json = $.parseJSON(xhr.responseText);
-						  $(json.errors).each(function(code, text){
-						       console.log(code + " : " + text);     
+						  $(json.errors).each(function(i,val){
+						      $.each(val,function(k,v){
+						            console.log(k+" : "+ v);     
+						  });
 						  });
 					  }
 					});
