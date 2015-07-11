@@ -12,7 +12,7 @@
 			
 				function submitcsr(){
 					data = {
-						  hostname/ip (separate mutliple entries with commas): $("#hostname").val(),
+						  hostname: $("#hostname").val(),
 				  	  	  certificate_request: $("#csr").val(),
 						  profile: "www"
 					}
@@ -69,7 +69,7 @@
 		<p class="error" id="error_sub1"></p>
 		<p class="error" id="error_sub2"></p>
 		<p>
-			<label class="label" for="hostname">Hostname:</label>
+			<label class="label" for="hostname">Hostname/ip (separate multiple entries with commas):</label>
 			<input type="text" name="hostname" value="" id="hostname">
 			<br/>
 			<br/>
