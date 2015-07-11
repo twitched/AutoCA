@@ -29,11 +29,9 @@
 						  $("#error").text(errorThrown);
 						  var json = $.parseJSON(xhr.responseText);
 						  $(json.errors).each(function(i,val){
-						      $.each(val,function(k,v){
-								  p = document.createElement("p");
-								  $(p).text(v);
-								  $("#error_sub1").append(p);    
-						  	  });
+							  p = document.createElement("p");
+							  $(p).text(val.message);
+							  $("#error_sub1").append(p);    
 						  });
 					  }
 					});
