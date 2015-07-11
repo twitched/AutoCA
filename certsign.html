@@ -14,7 +14,7 @@
 					data = {
 						  hostname: $("#hostname").val(),
 				  	  	  certificate_request: $("#csr").val(),
-						  profile: "www"
+						  profile: $("#type").val()
 					}
 					$.ajax({
 					  url: window.location.protocol + '//' + window.location.hostname + ':8080/cfssl-api/api/v1/cfssl/sign',
@@ -69,6 +69,12 @@
 		<p class="error" id="error_sub1"></p>
 		<p class="error" id="error_sub2"></p>
 		<p>
+			Certificate Type:
+			<select id="type">
+			  <option value="www" selected>Web Server</option>
+			  <option value="www">Web Client</option>
+			  <option value="smime">S/MIME Email</option>
+			</select><br/>
 			<label class="label" for="hostname">Hostname/ip (separate multiple entries with commas):</label>
 			<input type="text" size="25" name="hostname" value="" id="hostname">
 			<br/>
