@@ -28,7 +28,7 @@
 	  				  error: function(xhr, textStatus, errorThrown) {
 						  $("#error").text(errorThrown);
 						  $("#error_sub1").text(textStatus)
-						  $("#error_sub2").text(xhr)
+						  $("#error_sub2").text(xhr.responseText)
 					  }
 					});
 				}				
