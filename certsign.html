@@ -14,8 +14,8 @@
 				function submitcsr(){
 					data = {
 						  hostname: $("#hostname").val(),
-				  	  	  certificate_request: $("#csr").val(),
-						  profile: $("#type").val()
+						  profile: $("#type").val(),
+				  	  	  certificate_request: $("#csr").val()
 					}
 					$.ajax({
 					  url: window.location.protocol + '//' + window.location.hostname + ':8080/cfssl-api/api/v1/cfssl/sign',
