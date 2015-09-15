@@ -18,7 +18,7 @@
 				  	  	  certificate_request: $("#csr").val()
 					}
 					$.ajax({
-					  url: window.location.protocol + '//' + window.location.hostname + ':7070/cfssl-api/api/v1/cfssl/sign',
+					  url: window.location.protocol + '//' + window.location.hostname + ':8080/cfssl-ec-api/api/v1/cfssl/sign',
 					  type: 'POST',
 	  				  dataType: 'json',
 	  				  data: JSON.stringify(data),
