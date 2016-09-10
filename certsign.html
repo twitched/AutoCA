@@ -18,7 +18,7 @@
 				  	  	  certificate_request: $("#csr").val()
 					}
 					$.ajax({
-					  url: window.location.protocol + '//' + window.location.hostname + ':8080/cfssl-api/api/v1/cfssl/sign',
+					  url: window.location.protocol + '//' + window.location.hostname + '/cfssl-api/api/v1/cfssl/sign',
 					  type: 'POST',
 	  				  dataType: 'json',
 	  				  data: JSON.stringify(data),
@@ -75,8 +75,8 @@
 			<p>
 				Certificate Type:
 				<select id="type">
-				  <option value="www" selected>Web Server</option>
-				  <option value="client">Web Client</option>
+				  <option value="client" selected>Web Client</option>
+				  <option value="www">Web Server</option>
 				  <option value="smime">S/MIME Email</option>
 				  <option value="ipsec">IPSec</option>
 				  <option value="ocsp">OCSP Signer</option>
@@ -92,6 +92,7 @@
 				<button id="submit">Submit</button>
 			</p>
 		</p>
+		<p>Copy your certificate signing request below:</p>
 		<p id="message">
 		</p>
 		<pre id="certificate">
