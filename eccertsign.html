@@ -18,7 +18,7 @@
 				  	  	  certificate_request: $("#csr").val()
 					}
 					$.ajax({
-					  url: window.location.protocol + '//' + window.location.hostname + ':8080/cfssl-ec-api/api/v1/cfssl/sign',
+					  url: window.location.protocol + '//' + window.location.hostname + '/cfssl-api/api/v1/cfssl/sign',
 					  type: 'POST',
 	  				  dataType: 'json',
 	  				  data: JSON.stringify(data),
@@ -65,7 +65,7 @@
 		</style>
 	</head>
 	<body id="certsign" onload="">
-		<h1>IT 351 EC Certificate Authority</h1>
+		<h1>ITM 455 EC Certificate Authority</h1>
 		<p><a href=eccacert.pem>Download CA Certificate</a></p>
 		<h2>Submit your Certificate Signing Request Below</h2>
 		<h2 class="error" id="error"></h2>
@@ -75,16 +75,18 @@
 			<p>
 				Certificate Type:
 				<select id="type">
-				  <option value="www" selected>Web Server</option>
-				  <option value="client">Web Client</option>
+				  <option value="client" selected>Web Client</option>
+				  <option value="www">Web Server</option>
 				  <option value="smime">S/MIME Email</option>
-				  <option value="ipsec">IPSec</option>
-  				  <option value="ocsp">OCSP Signer</option>
+				  <option value="ipsec-client">IPSec Client</option>
+				  <option value="ipsec-server">IPSec Server</option>				  
+				  <option value="ocsp">OCSP Signer</option>
 				</select>
 			</p>
 			<p>Subject Alternative Name (separate multiple entries with commas):
 				<input type="text" size="25" name="hostname" value="" id="hostname">
 			<p/>
+			<p>Copy your certificate signing request below:</p>
 			<p/>
 				<textarea rows="30" cols="65" name="csr" value="" id="csr"></textarea>
 			<p/>
